@@ -1,5 +1,9 @@
 $(function() {
 
+  var bodyViewModel = {
+    modalContentParent: ko.observable('I come from your context parent')
+  };
+
   $('#test-alert').click(function() {
     ko.alert('i am a msg to notify you i am here');
   });
@@ -13,6 +17,21 @@ $(function() {
     });
 
   });
+
+  $('#test-modal').click(function() {
+
+    ko.modal({
+      templateId: 'modal',
+      title: 'abc',
+      viewModel: $.extend({
+        modalContent: ko.observable('this is modal content'),
+      }, bodyViewModel),
+      
+    });
+  });
+
+
+  ko.applyBindings(bodyViewModel);
 
 
 });

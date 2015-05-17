@@ -13,9 +13,31 @@
     </head>
     <body>
         <div>knockout_artDialog_test</div>
+
         <div class="container">
-            <button id="test-alert">test alert</button>
-            <button id="test-confirm">test confirm</button>
+            <section>
+                <p>test alert and confirm</p>
+                <button id="test-alert">test alert</button>
+                <button id="test-confirm">test confirm</button>
+            </section>
+            <section>
+                <p>test modal</p>
+                <button id="test-modal">test modal</button>
+                <p data-bind="text: modalContentParent"></p>
+            </section>
         </div>
+
+        <template id="modal">
+            <div data-bind="text: modalContent"></div>
+            <div>
+                <input type="text" data-bind="textInput: modalContent">
+            </div>
+
+            <div data-bind="text: modalContentParent"></div>
+            <div>
+                <input type="text" data-bind="textInput: modalContentParent">
+            </div>
+
+        </template>
     </body>
 </html>

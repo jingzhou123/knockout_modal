@@ -10,8 +10,8 @@ ko.alert = function(msg) {
 ko.confirm = function(html, title) {
 
   var dfd = $.Deferred();
-  var d = dialog({
 
+  var d = dialog({
     title: title,
     content: html,
     okValue: '确定',
@@ -22,8 +22,29 @@ ko.confirm = function(html, title) {
     cancel: function() {
       dfd.reject();
     },
-
   }).show();
 
   return dfd.promise();
+};
+
+ko.modal = function(options) {
+
+  var viewModel = options.viewModel || false;
+  var title     = options.title     || '';
+  var templateId  = options.templateId  || '';
+  
+  var ele       = templateId ? $('#' + templateId).html() : '';
+  var d         = dialog({
+    content : ele,
+    title   : title,
+    onclose : function() {
+      ko.cleanNode(this.__popup[0]);
+    }
+  });
+
+  if (viewModel) {
+    ko.applyBindings(viewModel, d.__popup[0]);
+  }
+
+  d.showModal();
 };
