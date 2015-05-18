@@ -1,0 +1,30 @@
+{
+  "name": "knockout_modal",
+  "version": "0.1",
+  "homepage": "https://github.com/jingzhou123/knockout_modal",
+  "authors": [
+    "jiwang <jiwang@alibaba-inc.com>"
+  ],
+  "description": "a knockout modal based on artDialog",
+  "main": "knockout_modal.js",
+  "moduleType": [
+    "amd",
+    "globals"
+  ],
+  "keywords": [
+    "knockout",
+    "modal"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "knockout": "~3.3.0",
+    "jquery": "~2.1.4"
+  }
+}
